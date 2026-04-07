@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digo's Page</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Digo's Page</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Página Inicial</a></li>
+        <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+
+        <!-- BOTÃO SAIR NA NAVBAR -->
+        <li class="nav-item">
+          <a class="btn btn-danger ms-lg-3 mt-2 mt-lg-0" href="login.html">Sair</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTEÚDO -->
+<div class="container text-center mt-4">
+
+  <h1 class="titulo">Olá, Usuário!</h1>
+  <p class="sejabemvindo">- Seja bem vindo. -</p>
+
+  <!-- BOTÕES RESPONSIVOS -->
+  <div class="d-flex flex-column gap-2 col-10 col-sm-8 col-md-4 mx-auto mt-4">
+
+    <button class="btn btn-success" onclick="abrirAlerta('Anderson')">Anderson</button>
+    <button class="btn btn-success" onclick="abrirAlerta('Bernardo')">Bernardo</button>
+    <button class="btn btn-success" onclick="abrirAlerta('Ronaldo')">Ronaldo</button>
+    <button class="btn btn-success" onclick="abrirAlerta('Guilherme')">Guilherme</button>
+    <button class="btn btn-success" onclick="abrirAlerta('André')">André</button>
+    <button class="btn btn-success" onclick="abrirAlerta('João')">João</button>
+
+  </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+function abrirAlerta(nome) {
+ Swal.fire({
+  title: `<strong><u>Olá, ${nome}!</u></strong>`,
+  icon: "success",
+  html: `
+    <a href="imagem.html" target="_blank" style="color:red; font-weight:bold;">
+      NÃO CLIQUE AQUI
+    </a>
+  `,
+  showCloseButton: true,
+  confirmButtonText: "Fechar"
+});
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

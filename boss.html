@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secreto!</title>
+
+<style>
+body {
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: Arial;
+}
+
+input {
+    padding: 8px;
+    margin: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<p id="historia">
+V-você me encontrou... Você deseja me ouvir?...
+</p>
+
+<input type="text" id="resposta" placeholder="Digite sim ou não">
+<button onclick="responder()">Enviar</button>
+
+<p id="resultado"></p>
+
+<div id="historia2" style="display: none;">
+  <input type="text" id="resposta2" placeholder="sim ou nao">
+  <button onclick="historia2Func()">Enviar</button>
+</div>
+
+<p id="resultado2"></p>
+
+<button onclick="reiniciar()">Reiniciar História</button>
+
+ <script src="../jss/boss.js" defer></script>
+</body>
+</html>

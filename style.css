@@ -1,0 +1,99 @@
+
+
+.titulo{
+     text-align: center;
+    margin-top: 30px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px #000000,
+        0 0 10px #000000,
+        0 0 20px #000000;
+    }
+
+
+.sejabemvindo{
+    top: 150px;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.login{
+    position: absolute;
+    top: 100px;
+    transform: translate(10%, 50%);
+}
+
+.sair{
+    color: #ffffff;
+    font-size: 20px;
+    position:absolute;
+    right: 70px;
+    top: 100px;
+}
+
+#erroLogin{
+    text-align: center;
+    padding: 1px;
+    border-radius: 10px;
+    background-size: 122px;
+    width: 350px;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(255, 0, 0);
+
+}
+@keyframes tremer {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.erro-animacao {
+    animation: tremer 0.3s;
+}
+
+.body-login{
+    background: linear-gradient(to right, #2e2020, #2c282c);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* centro horizontal */
+    align-items: center;     /* centro vertical */
+    
+}
+
+.caixalogin {
+  width: 300px;
+  height: 35px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.caixaentrar {
+  width: 60%;
+}
+.bordalogin {
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 15px;
+
+  width: 370px;
+  height: 550px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* espaçamento automático */
+}
+
+
+.textlogin{
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
