@@ -1,50 +1,99 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secreto!</title>
-
-<style>
-body {
-    background-color: black;
-    text-align: center;
-    color: white;
-    font-family: Arial;
+function esperar(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-input {
-    padding: 8px;
-    margin: 10px;
+function normalizar(texto) {
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
-button {
-    padding: 8px 15px;
-    cursor: pointer;
+function digitar(texto, elemento) {
+  return new Promise(resolve => {
+    let i = 0;
+
+    function escrever() {
+      if (i < texto.length) {
+        elemento.innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escrever, 40);
+      } else {
+        resolve();
+      }
+    }
+
+    escrever();
+  });
 }
-</style>
-</head>
 
-<body>
+// 🔥 FASE 1
+async function responder() {
+  const resposta = normalizar(document.getElementById("resposta").value);
+  const resultado = document.getElementById("resultado");
 
-<p id="historia">
-V-você me encontrou... Você deseja me ouvir?...
-</p>
+  resultado.innerHTML = "";
 
-<input type="text" id="resposta" placeholder="Digite sim ou não">
-<button onclick="responder()">Enviar</button>
+  if (resposta === "sim") {
+    esconderFase1();
 
-<p id="resultado"></p>
+    await digitar("Hm. ", resultado);
+    await esperar(1000);
+    await digitar("Será que eu devo confiar em você? ", resultado);
+    await esperar(1000);
+    await digitar("Você não parece ser do tipo que gosta de garotos fofos. ", resultado);
+    await esperar(1000);
+    await digitar("Você é do tipo que gosta de garotos fofos? ", resultado);
 
-<div id="historia2" style="display: none;">
-  <input type="text" id="resposta2" placeholder="sim ou nao">
-  <button onclick="historia2Func()">Enviar</button>
-</div>
+    document.getElementById("historia2").style.display = "block";
 
-<p id="resultado2"></p>
+  } else if (resposta === "nao") {
+    esconderFase1();
 
-<button onclick="reiniciar()">Reiniciar História</button>
+    await digitar("ELE PEGA VOCÊ E TE BEIJA LOUCAMENTE! ", resultado);
+    await esperar(1000);
+    await digitar("HAHAHAHAHAHAHAHA", resultado);
 
- <script src="../jss/boss.js" defer></script>
-</body>
-</html>
+  } else {
+    resultado.innerHTML = "Digite apenas 'sim' ou 'nao'.";
+  }
+}
+
+// 🔥 FASE 2
+async function historia2Func() {
+  const resposta2 = normalizar(document.getElementById("resposta2").value);
+  const resultado2 = document.getElementById("resultado2");
+
+  resultado2.innerHTML = "";
+
+  if (resposta2 === "sim") {
+    esconderFase2();
+
+    await digitar("Interessante... você é mais estranho do que pensei. ", resultado2);
+
+  } else if (resposta2 === "nao") {
+    esconderFase2();
+
+    await digitar("Eu sabia... você não é confiável. ", resultado2);
+
+  } else {
+    resultado2.innerHTML = "Digite apenas 'sim' ou 'nao'.";
+  }
+}
+
+// 🔧 AUXILIARES
+function esconderFase1() {
+  document.getElementById("historia").style.display = "none";
+  document.getElementById("resposta").style.display = "none";
+  document.getElementById("btn1").style.display = "none";
+}
+
+function esconderFase2() {
+  document.getElementById("resposta2").style.display = "none";
+  document.getElementById("btn2").style.display = "none";
+}
+
+// 🔄 RESET
+function reiniciar() {
+  location.reload();
+}
