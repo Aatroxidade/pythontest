@@ -17,6 +17,7 @@
     top: 150px;
     width: 100%;
     text-align: center;
+    color: #ececec;
 }
 
 
@@ -75,13 +76,14 @@
 }
 
 .caixaentrar {
-  width: 60%;
+  width: 30%;
 }
 .bordalogin {
   border: 2px solid rgba(255,255,255,0.3);
   border-radius: 15px;
+  background-color: rgba(187, 166, 166, 0.116);
 
-  width: 370px;
+  width: 500px;
   height: 550px;
 
   display: flex;
@@ -96,4 +98,37 @@
     text-align: center;
     color: white;
     margin-top: 10px;
+}
+
+.imglogin {
+  margin: 0;
+  height: 100vh;
+
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+    url("https://images.unsplash.com/photo-1506744038136-46273834b3fb");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.imginicial {
+  margin: 0;
+  min-height: 100vh;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    url("https://images.unsplash.com/photo-1511512578047-dfb367046420") !important;
+
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.fundonome{
+    color: white;
+    height: 40px;
+    border-radius: 6px;
+    background-color: rgba(43, 36, 36, 0.753);
 }
